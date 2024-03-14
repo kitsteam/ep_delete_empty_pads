@@ -1,6 +1,6 @@
 {
     "name": "ep_delete_empty_pads",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "Delete pads which were never edited [DO NOT UPGRADE IF Etherpad < 1.8.0]",
     "author": {
         "name": "Luc Didry",
