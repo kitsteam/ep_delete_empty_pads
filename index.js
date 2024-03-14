@@ -13,6 +13,8 @@ exports.deletePadAtLeave = (hook, session, cb) => {
             if (pad.getHeadRevisionNumber() !== 0) return;
             logger.info(`Deleting ${session.padId} when user leaved since empty`);
             await pad.remove();
+            PadManager.unloadPad(padId)
+
         }
     })();
     return cb(); // No need to wait for completion before calling the callback.
@@ -29,6 +31,7 @@ exports.deletePadsAtStart = (hook_name, args, cb) => {
                 if (pad.getHeadRevisionNumber() !== 0) continue;
                 logger.info(`Deleting ${pad.id} at startup since empty`);
                 await pad.remove();
+                PadManager.unloadPad(padId)
             }
         }
     })();
