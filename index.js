@@ -30,7 +30,6 @@ exports.deletePadsAtStart = (hook_name, args, cb) => {
                 if (pad.getHeadRevisionNumber() !== 0) continue;
                 logger.info(`Deleting ${pad.id} at startup since empty`);
                 await pad.remove();
-                PadManager.unloadPad(padId)
             }
             PadManager.unloadPad(padId)
         }
